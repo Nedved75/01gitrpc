@@ -16,9 +16,13 @@ service NotificationConfiguration {
   rpc Delete (DeleteConfigurationRequest) returns (DeleteConfigurationResponse) {}
 }
 
+// this returns the notification_configuration_id as a reference for future requests
 message CreateWebhookConfigurationRequest {
+  //id for your internal reference - defined by you
   string request_id = 1;
+  //the events you want to listen to - find a list of all possible events here
   repeated string events = 2;
+  //the webhook URL - defined by you
   string url = 3;
 }
 
@@ -28,17 +32,19 @@ message CreateWebhookConfigurationResponse {
 }
 
 message GetConfigurationRequest {
+  //the notification_configuration_id has been sent with the CreateWebhookConfigurationResponse
   string notification_configuration_id = 1;
 }
 
 message GetConfigurationResponse {
   repeated string events = 1;
-  // Channel specific information.
+  // Channel specific information. Shows which channel you use (eg webhook, ...)
   google.protobuf.Any data = 100;
   relay.Status status = 101;
 }
 
 message DeleteConfigurationRequest {
+  //the notification_configuration_id has been sent with the CreateWebhookConfigurationResponse
   string notification_configuration_id = 1;
 }
 
