@@ -32,11 +32,11 @@ message InitializeRequest {
   string reference = 1;
   relay.PaymentMethod payment_method = 2;
   // Payment method specific information.
-  google.protobuf.Any data = 100;
-  oneof paymentselection {
-    relay.onboarding.v1.paymentmethods.ppro.InitializeRequestData PaymentMethodDataPPRO = 3;
-    relay.onboarding.v1.paymentmethods.expressbank.InitializeRequestData PaymentMethodDataExpressBank = 4;
-    relay.onboarding.v1.paymentmethods.klarna.InitializeRequestData PaymentMethodDataKlarna = 5;
+  //google.protobuf.Any data = 100;
+  oneof data {
+    relay.onboarding.v1.paymentmethods.ppro.InitializeRequestData InitializeRequestPPRO = 3;
+    relay.onboarding.v1.paymentmethods.expressbank.InitializeRequestData InitializeRequestExpressBank = 4;
+    relay.onboarding.v1.paymentmethods.klarna.InitializeRequestData InitializeRequestKlarna = 5;
 
 
   }
