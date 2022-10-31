@@ -7,6 +7,10 @@ import "google/protobuf/wrappers.proto";
 
 import "relay/models.proto";
 
+import "relay/onboarding/v1/paymentmethods/expressbank.proto";
+import "relay/onboarding/v1/paymentmethods/klarna.proto";
+import "relay/onboarding/v1/paymentmethods/ppro.proto";
+
 option csharp_namespace = "Relay.Onboarding.V1";
 
 service PaymentMethodOnboarding {
@@ -29,6 +33,9 @@ message InitializeRequest {
   relay.PaymentMethod payment_method = 2;
   // Payment method specific information.
   google.protobuf.Any data = 100;
+  oneof paymentselection {
+
+  }
 }
 
 message InitializeResponse {
