@@ -34,9 +34,9 @@ message InitializeRequest {
   // Payment method specific information.
   google.protobuf.Any data = 100;
   oneof paymentselection {
-    relay.onboarding.v1.paymentmethods.ppro.InitializeRequestData Date = 3;
-    relay.onboarding.v1.paymentmethods.expressbank.InitializeRequestData Date = 4;
-    relay.onboarding.v1.paymentmethods.klarna.InitializeRequestData Date = 5;
+    relay.onboarding.v1.paymentmethods.ppro.InitializeRequestData PaymentMethodData = 3;
+    relay.onboarding.v1.paymentmethods.expressbank.InitializeRequestData PaymentMethodData = 4;
+    relay.onboarding.v1.paymentmethods.klarna.InitializeRequestData PaymentMethodData = 5;
 
 
   }
